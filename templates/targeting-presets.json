@@ -1,0 +1,49 @@
+{
+  "us_broad": {
+    "description": "US, all ages 18-65+, all genders, automatic placements",
+    "targeting": {
+      "geo_locations": {"countries": ["US"]},
+      "age_min": 18,
+      "age_max": 65
+    }
+  },
+  "us_young_adults": {
+    "description": "US adults 18-35, all genders",
+    "targeting": {
+      "geo_locations": {"countries": ["US"]},
+      "age_min": 18,
+      "age_max": 35
+    }
+  },
+  "latam_broad": {
+    "description": "LATAM countries, all ages, all genders",
+    "targeting": {
+      "geo_locations": {"countries": ["MX", "CO", "AR", "CL", "PE", "EC"]},
+      "age_min": 18,
+      "age_max": 65
+    }
+  },
+  "spain_broad": {
+    "description": "Spain, all ages 18-65+, all genders",
+    "targeting": {
+      "geo_locations": {"countries": ["ES"]},
+      "age_min": 18,
+      "age_max": 65
+    }
+  },
+  "ecommerce_shoppers": {
+    "description": "US online shoppers 25-54",
+    "targeting": {
+      "geo_locations": {"countries": ["US"]},
+      "age_min": 25,
+      "age_max": 54,
+      "flexible_spec": [
+        {
+          "behaviors": [
+            {"id": "6002714895372", "name": "Engaged Shoppers"}
+          ]
+        }
+      ]
+    }
+  }
+}

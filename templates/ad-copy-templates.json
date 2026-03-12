@@ -1,0 +1,37 @@
+{
+  "aida": {
+    "name": "AIDA Framework",
+    "description": "Attention, Interest, Desire, Action",
+    "primary_text": "[ATTENTION: Hook question or bold statement]\n\n[INTEREST: Expand on the problem/opportunity]\n\n[DESIRE: Show the transformation/benefit]\n\n[ACTION: Clear next step]",
+    "headline": "[Key Benefit in 5 words]",
+    "description": "[Urgency or social proof]"
+  },
+  "pas": {
+    "name": "PAS Framework",
+    "description": "Problem, Agitate, Solution",
+    "primary_text": "[PROBLEM: Name the pain point directly]\n\n[AGITATE: Make them feel the cost of not solving it]\n\n[SOLUTION: Present your product as the answer]",
+    "headline": "[Solution in 5 words]",
+    "description": "[Quick benefit statement]"
+  },
+  "bab": {
+    "name": "BAB Framework",
+    "description": "Before, After, Bridge",
+    "primary_text": "[BEFORE: Describe current frustrating situation]\n\n[AFTER: Paint the picture of life with solution]\n\n[BRIDGE: Show how your product gets them there]",
+    "headline": "[Transformation promise]",
+    "description": "[How to start]"
+  },
+  "social_proof": {
+    "name": "Social Proof Lead",
+    "description": "Lead with numbers and testimonials",
+    "primary_text": "[NUMBER] [customers/users/businesses] already [RESULT].\n\n[TESTIMONIAL or specific result]\n\n[CTA: Join them / Start today]",
+    "headline": "[Result + timeframe]",
+    "description": "[Trust signal]"
+  },
+  "direct_offer": {
+    "name": "Direct Offer",
+    "description": "Straightforward promotional ad",
+    "primary_text": "[OFFER: X% off / Free trial / Limited time]\n\n[WHAT: Brief product description]\n\n[WHY NOW: Urgency element]",
+    "headline": "[Offer in 5 words]",
+    "description": "[Deadline or scarcity]"
+  }
+}
