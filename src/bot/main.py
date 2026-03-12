@@ -25,9 +25,11 @@ def main():
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s [%(name)s] %(levelname)s: %(message)s",
+        stream=sys.stdout,
     )
-    # Suppress noisy httpx logs
+    # Suppress noisy logs
     logging.getLogger("httpx").setLevel(logging.WARNING)
+    logging.getLogger("telegram.ext").setLevel(logging.WARNING)
 
     config = load_config()
     print(f"Bot configurado. Owner ID: {config.telegram_owner_id}")
