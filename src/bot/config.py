@@ -51,5 +51,5 @@ def load_config() -> BotConfig:
         telegram_bot_token=telegram_bot_token,
         telegram_owner_id=int(telegram_owner_id),
         anthropic_api_key=anthropic_api_key,
-        claude_model=os.getenv("CLAUDE_MODEL", "claude-sonnet-4-20250514"),
+        claude_model=os.getenv("CLAUDE_MODEL", "claude-sonnet-4-6"),
     )
