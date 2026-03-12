@@ -82,6 +82,10 @@ TOOL_DEFINITIONS = [
                 "campaign_id": {"type": "string", "description": "ID de la campana padre"},
                 "name": {"type": "string", "description": "Nombre del ad set"},
                 "daily_budget": {"type": "integer", "description": "Presupuesto diario en centavos"},
+                "bid_amount": {
+                    "type": "integer",
+                    "description": "Limite de puja maximo en centavos (ej: $0.50 = 50). Requerido si la cuenta exige bid cap. Usar 50-100 para trafico en Chile.",
+                },
                 "optimization_goal": {
                     "type": "string",
                     "enum": [

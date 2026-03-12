@@ -31,6 +31,7 @@ def create_adset(
     lifetime_budget: int | None = None,
     billing_event: str = "IMPRESSIONS",
     optimization_goal: str = "LINK_CLICKS",
+    bid_amount: int | None = None,
     targeting: dict | None = None,
     start_time: str | None = None,
     end_time: str | None = None,
@@ -49,9 +50,14 @@ def create_adset(
         "name": name,
         "billing_event": billing_event,
         "optimization_goal": optimization_goal,
-        "bid_strategy": "LOWEST_COST_WITHOUT_CAP",
         "status": "PAUSED",
     }
+
+    if bid_amount is not None:
+        params["bid_strategy"] = "LOWEST_COST_WITH_BID_CAP"
+        params["bid_amount"] = bid_amount
+    else:
+        params["bid_strategy"] = "LOWEST_COST_WITHOUT_CAP"
 
     if daily_budget is not None:
         params["daily_budget"] = daily_budget

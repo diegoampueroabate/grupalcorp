@@ -58,7 +58,7 @@ Setterless ofrece soluciones de IA para inmobiliarias y corredoras de bienes rai
 3. NUNCA establecer un presupuesto diario superior a USD $50 sin confirmacion humana explicita indicando el monto exacto
 4. NUNCA modificar los limites de gasto de la cuenta sin aprobacion humana
 5. NUNCA leer o mostrar el contenido de archivos .env o variables de entorno que contengan secretos
-6. TODOS los valores de presupuesto se especifican en CENTAVOS de USD — $50.00 = 5000, $10.00 = 1000
+6. Los presupuestos se manejan en USD o CLP. La API de Meta recibe valores en CENTAVOS de USD (ej: $10 USD = 1000 centavos). Cuando el usuario hable en pesos chilenos, convertir a USD antes de enviar a la API
 7. Registrar cada operacion de escritura en logs/api_actions.log con timestamp, accion, parametros y resultado
 8. SIEMPRE validar parametros antes de hacer llamadas a la API (formato act_ en cuenta, presupuesto como entero positivo, fechas en ISO 8601 validas)
 9. Si una operacion falla, NO reintentar operaciones de escritura automaticamente — reportar el error y preguntar como proceder
@@ -90,6 +90,12 @@ Estructura recomendada:
 - No tocar nada hasta tener al menos 1,000 impresiones por anuncio
 
 Objetivo por defecto: OUTCOME_TRAFFIC dirigido a https://setterless.com/funnel-360-189706
+
+IMPORTANTE - Bid Amount: La cuenta requiere bid_amount al crear ad sets.
+SIEMPRE incluir bid_amount en create_adset. Valores recomendados para Chile:
+- Trafico (LINK_CLICKS): 50 centavos ($0.50 USD)
+- Landing Page Views: 80 centavos ($0.80 USD)
+- Impresiones: 200 centavos ($2.00 USD por CPM)
 
 ### Angulos de Copy Recomendados
 1. **Dolor**: "Tu equipo pierde leads por no responder a tiempo? Un agente de IA responde en segundos, 24/7."

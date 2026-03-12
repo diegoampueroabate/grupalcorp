@@ -82,6 +82,7 @@ def _create_adset(tool_input: dict) -> str:
             name=tool_input["name"],
             daily_budget=tool_input.get("daily_budget"),
             optimization_goal=tool_input.get("optimization_goal", "LINK_CLICKS"),
+            bid_amount=tool_input.get("bid_amount"),
             targeting=tool_input.get("targeting"),
             start_time=tool_input.get("start_time"),
             end_time=tool_input.get("end_time"),
@@ -99,9 +100,13 @@ def _create_adset(tool_input: dict) -> str:
                 "name": tool_input["name"],
                 "billing_event": "IMPRESSIONS",
                 "optimization_goal": tool_input.get("optimization_goal", "LINK_CLICKS"),
-                "bid_strategy": "LOWEST_COST_WITHOUT_CAP",
                 "status": "PAUSED",
             }
+            if tool_input.get("bid_amount"):
+                params["bid_strategy"] = "LOWEST_COST_WITH_BID_CAP"
+                params["bid_amount"] = tool_input["bid_amount"]
+            else:
+                params["bid_strategy"] = "LOWEST_COST_WITHOUT_CAP"
             if tool_input.get("daily_budget"):
                 params["daily_budget"] = validate_budget_cents(tool_input["daily_budget"], "daily_budget")
             if tool_input.get("targeting"):
