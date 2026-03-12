@@ -99,6 +99,7 @@ def _create_adset(tool_input: dict) -> str:
                 "name": tool_input["name"],
                 "billing_event": "IMPRESSIONS",
                 "optimization_goal": tool_input.get("optimization_goal", "LINK_CLICKS"),
+                "bid_strategy": "LOWEST_COST_WITHOUT_CAP",
                 "status": "PAUSED",
             }
             if tool_input.get("daily_budget"):

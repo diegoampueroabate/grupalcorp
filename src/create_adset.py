@@ -49,6 +49,7 @@ def create_adset(
         "name": name,
         "billing_event": billing_event,
         "optimization_goal": optimization_goal,
+        "bid_strategy": "LOWEST_COST_WITHOUT_CAP",
         "status": "PAUSED",
     }
 
