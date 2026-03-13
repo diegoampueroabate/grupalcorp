@@ -5,7 +5,7 @@ import logging
 import anthropic
 
 from .config import BotConfig
-from .conversation_store import ConversationStore
+from .supabase_store import SupabaseConversationStore
 from .tool_definitions import TOOL_DEFINITIONS
 from .tool_executor import execute_tool
 
@@ -185,13 +185,23 @@ class ClaudeAgent:
     def __init__(self, config: BotConfig):
         self.client = anthropic.AsyncAnthropic(api_key=config.anthropic_api_key)
         self.model = config.claude_model
-        self.store = ConversationStore(max_messages=50, ttl_hours=24)
+        self.store = SupabaseConversationStore(config.supabase_url, config.supabase_key)
         self.pending_images: dict[int, str] = {}
 
-    async def process_message(self, chat_id: int, user_text: str) -> str:
-        """Process a user message through Claude and return the response text."""
-        self.store.add_message(chat_id, {"role": "user", "content": user_text})
+    async def process_message(self, chat_id: int, user_content: str | list[dict]) -> str:
+        """Process a user message through Claude and return the response text.
+
+        user_content can be a plain string or a list of content blocks
+        (e.g. image + text for vision).
+        """
+        # Store a sanitized version (no base64 image data) in Supabase
+        storage_content = self._sanitize_for_storage(user_content)
+        self.store.add_message(chat_id, {"role": "user", "content": storage_content})
         messages = self.store.get_messages(chat_id)
+
+        # Replace the last message with the full content (may include base64)
+        # so Claude can see images in the current turn
+        messages[-1] = {"role": "user", "content": user_content}
 
         max_iterations = 10
         iteration = 0
@@ -258,3 +268,16 @@ class ClaudeAgent:
         elif block.type == "tool_use":
             return {"type": "tool_use", "id": block.id, "name": block.name, "input": block.input}
         return {"type": block.type}
+
+    @staticmethod
+    def _sanitize_for_storage(content: str | list[dict]) -> str | list[dict]:
+        """Remove base64 image data before storing in Supabase."""
+        if isinstance(content, str):
+            return content
+        sanitized = []
+        for block in content:
+            if block.get("type") == "image":
+                sanitized.append({"type": "text", "text": "[Imagen enviada por el usuario]"})
+            else:
+                sanitized.append(block)
+        return sanitized

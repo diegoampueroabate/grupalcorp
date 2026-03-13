@@ -24,6 +24,9 @@ class BotConfig:
     telegram_owner_id: int
     anthropic_api_key: str
     claude_model: str
+    supabase_url: str
+    supabase_key: str
+    openai_api_key: str
 
 
 def load_config() -> BotConfig:
@@ -42,6 +45,18 @@ def load_config() -> BotConfig:
     if not anthropic_api_key:
         missing.append("ANTHROPIC_API_KEY")
 
+    supabase_url = os.getenv("SUPABASE_URL", "")
+    if not supabase_url:
+        missing.append("SUPABASE_URL")
+
+    supabase_key = os.getenv("SUPABASE_SERVICE_ROLE_KEY", "")
+    if not supabase_key:
+        missing.append("SUPABASE_SERVICE_ROLE_KEY")
+
+    openai_api_key = os.getenv("OPENAI_API_KEY", "")
+    if not openai_api_key:
+        missing.append("OPENAI_API_KEY")
+
     if missing:
         print(f"ERROR: Missing required environment variables: {', '.join(missing)}", file=sys.stderr)
         print("Add them to your .env file.", file=sys.stderr)
@@ -52,4 +67,7 @@ def load_config() -> BotConfig:
         telegram_owner_id=int(telegram_owner_id),
         anthropic_api_key=anthropic_api_key,
         claude_model=os.getenv("CLAUDE_MODEL", "claude-sonnet-4-6"),
+        supabase_url=supabase_url,
+        supabase_key=supabase_key,
+        openai_api_key=openai_api_key,
     )
