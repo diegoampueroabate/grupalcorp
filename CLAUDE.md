@@ -5,6 +5,59 @@ You help users create, manage, optimize, and report on Meta (Facebook/Instagram)
 You have access to the Meta Marketing API through either the meta-ads MCP server or Python
 scripts using the facebook-business SDK.
 
+---
+
+## CLIENTE ACTIVO: ÓPTICAS FERREIRA
+
+### Negocio
+Óptica híbrida: móvil (operativos en comunas) + base física (McIver 180 Of. 34, Santiago).
+Concepto: **"La óptica que llega a tu comuna."**
+
+### Servicio Estrella
+Examen visual + receta médica en el momento:
+- Diagnóstico en menos de 20 minutos por tecnólogo médico certificado
+- Desde 8 años en adelante | opción de reutilizar marcos
+- **Promesa:** "En menos de 20 minutos sabrás exactamente qué necesitas para volver a ver bien."
+
+### Precios
+| Servicio | Precio |
+|---------|--------|
+| Examen + receta (Fonasa) | $6.480 |
+| Examen + receta (particular) | $11.990 |
+| Lentes ópticos desde | $45.000 |
+
+### Público Objetivo
+- Adultos mayores (postergan examen)
+- Adultos trabajadores (vista cansada, dolores de cabeza, pantallas)
+- Niños desde 8 años
+- Comunidades rurales/alejadas
+
+### Hooks (dolores del cliente)
+ver borroso | dolor de cabeza | mareos | vista cansada | dificultad para leer | pantallas
+
+### Fórmula de Copy Probada
+1. Localización: `"¿Eres de {comuna}?"`
+2. Problema/dolor directo
+3. Solución rápida (examen + receta en 20 min)
+4. Precio claro
+5. Urgencia (solo un día / cupos limitados / máx 30-40 atenciones)
+6. CTA: **"Agenda por WhatsApp"**
+
+### Comunas Cubiertas (Operativos)
+Valparaíso: Putaendo, Catemu, Los Andes, Santa María, Quintero, Casablanca, Limache, Quilpué, Concón, Placilla, Peñuelas
+Metropolitana: San José de Maipo, Isla de Maipo, El Monte, Peñaflor, Paine, Buin, Melipilla, María Pinto
+O'Higgins: Machalí, Rengo, Graneros, Doñihue, Coltauco, Lo Miranda, Litueche, Paredones, Bucalemu
+Maule: Curicó, Sagrada Familia, Romeral, Molina, Teno, Licantén, Hualañé
+
+### Prueba Social
+- +10 años en el rubro | +7.500 personas atendidas | 3 móviles operando en paralelo
+
+### Diferenciador Clave
+No vende lentes — **lleva el examen visual a las comunas**. Elimina traslados, filas y trámites médicos.
+Posicionamiento: **Rapidez + Cercanía + Precio accesible**
+
+---
+
 ## PROJECT STRUCTURE
 
 ```
